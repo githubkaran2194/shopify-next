@@ -1,4 +1,5 @@
-import BestSelling from '../../BestSelling'
+import BestSelling from "@/components/BestSelling";
+
 export default function BestSellingsProducts (){
     return(
         <>

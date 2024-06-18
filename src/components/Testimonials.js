@@ -12,7 +12,7 @@ export default function Testimonials (){
           <div className="flex flex-col p-6 lg:px-7 lg:py-8">
             <div className="">
               <blockquote className="">
-                <p className="text-3xl font-bold text-white sm:text-5xl">"I cannot overstate how much this has helped our startup"</p>
+                <p className="text-3xl font-bold text-white sm:text-5xl">I cannot overstate how much this has helped our startup</p>
               </blockquote>
             </div>
 
@@ -31,7 +31,7 @@ export default function Testimonials (){
         <div className="flex flex-col bg-white">
           <div className="">
             <blockquote className="">
-              <p className="text-lg leading-relaxed">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dolores facere repellendus, velit quis fugiat."</p>
+              <p className="text-lg leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dolores facere repellendus, velit quis fugiat.</p>
             </blockquote>
           </div>
 
@@ -47,7 +47,7 @@ export default function Testimonials (){
         <div className="flex flex-col bg-white">
           <div className="">
             <blockquote className="">
-              <p className="text-lg leading-relaxed">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dolores facere repellendus, velit quis fugiat."</p>
+              <p className="text-lg leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dolores facere repellendus, velit quis fugiat</p>
             </blockquote>
           </div>
 
@@ -63,7 +63,7 @@ export default function Testimonials (){
         <div className="flex flex-col bg-white">
           <div className="">
             <blockquote className="">
-              <p className="text-lg leading-relaxed">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dolores facere repellendus, velit quis fugiat."</p>
+              <p className="text-lg leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dolores facere repellendus, velit quis fugiat.</p>
             </blockquote>
           </div>
 

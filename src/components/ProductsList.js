@@ -1,9 +1,7 @@
 'use client'
-import { addToCart } from '@/redux/slices/CartSlice';
-/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
-import React from 'react';
 import AddToCartBtn from './AddToCartBtn';
+/* eslint-disable @next/next/no-img-element */
 
 export default function ProductsList({ products }) {
 
@@ -19,7 +17,7 @@ export default function ProductsList({ products }) {
                         </span>
                     </Link>
                     <div className="mt-4 px-5 pb-5">
-                        <Link href={`/products/${product.id}`}>
+                        <Link href={`/products/${product.id}`} className="text-xl tracking-tight text-slate-900">
                             <h5 className="text-xl tracking-tight text-slate-900">{product.title}</h5>
                         </Link>
                         <div className="mt-2 mb-5 flex items-center justify-between">

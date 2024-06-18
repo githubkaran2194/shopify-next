@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 /* eslint-disable @next/next/no-img-element */
+import Link from 'next/link';
 
 async function fetchBestSelling() {
     const res = await fetch(`https://dummyjson.com/products/category/mens-shoes`);
@@ -38,13 +39,17 @@ export default function BestSelling() {
                             {bestSelling.slice(0, 3).map((product) => (
                                 <article key={product.id} className="bg-slate-50 p-8">
                                     <div>
-                                        <h2 className="text-xl text-gray-600">{product.title}</h2>
+                                        <Link
+                                        href={`/products/${product.id}`}
+                                        className="text-xl text-gray-600">{product.title}</Link>
                                         <p className="mt-2 text-xl font-semibold text-gray-800">
                                             ${product.price}
                                         </p>
                                     </div>
                                     <div className="mt-8 flex items-center justify-center md:mt-24">
+                                    <Link href={`/products/${product.id}`}>
                                         <img className="" src={product.thumbnail} alt={product.title} />
+                                        </Link>
                                     </div>
                                 </article>
                             ))}
