@@ -1,102 +1,136 @@
 'use client'
-import Link from "next/link";
-import { useSelector } from "react-redux";
 
-/* eslint-disable @next/next/no-img-element */
-export default function Header() {
-    const items = useSelector((state) => state.cart.items);
-    return (
-        <header className="bg-white py-4">
-            <div className="mx-auto max-w-screen-xl flex justify-between items-center px-4 sm:px-20 xl:px-10">
-                <div className="flex items-center">
-                    <img
-                        src="https://images.unsplash.com/photo-1599751449128-eb7249c3d6b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
-                        alt="Boleno Logo"
-                        className="h-10 w-10 mr-2"
-                    />
-                    <Link href="/" className="text-gray-600 text-2xl font-bold hover:text-blue-600">
-                        shopify
-                    </Link>
-                </div>
-                <nav aria-label="Main Navigation" className="hidden sm:flex gap-8 items-center">
-                    <ul className="flex space-x-6">
-                        <li>
-                            <Link href="/" className="text-gray-600 hover:text-blue-600">
-                                Home
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/about" className="text-gray-600 hover:text-blue-600">
-                                About
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/products" className="text-gray-600 hover:text-blue-600">
-                                Products
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/contact" className="text-gray-600 hover:text-blue-600">
-                                Contact
-                            </Link>
-                        </li>
-                    </ul>
-                    <Link href="/login">
-                        <button
-                            className="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="mr-2 h-6 w-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M16 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2m8-10a4 4 0 100-8 4 4 0 000 8z"
-                                />
-                            </svg>
-                            Login
-                        </button>
-                    </Link>
-                    <Link href="/cart">
-                        <button
-                            className="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="mr-2 h-6 w-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                                />
-                            </svg>
-                            cart {items.length}
-                        </button>
-                    </Link>
-                </nav>
-                <button className="sm:hidden flex items-center justify-center w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        className="w-6 h-6"
-                    >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-            </div>
-        </header>
-    );
-}
+import { useState } from 'react';
+import { AppBar, Toolbar, Typography, IconButton, Menu, MenuItem, Button, Drawer, Box } from '@mui/material';
+import Hamburger from 'hamburger-react';
+
+import Link from 'next/link';
+const Navbar = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  return (
+    <>
+      <AppBar position="static" variant="elevation" color="default" className="bg-gradient-to-tr to-gray-800 from-gray-900">
+        <Toolbar>
+          <Typography variant="h6" component="div" className="text-white font-bold cursor-pointer">
+            Shopify-store
+          </Typography>
+          <div className="flex-grow"></div>
+          <div className="hidden md:flex gap-7 items-center">
+            <Link href="/" passHref>
+              <Button className="text-white font-bold hover:text-green-500">Home</Button>
+            </Link>
+            <Link href="/about" passHref>
+              <Button className="text-white font-bold hover:text-green-500">About</Button>
+            </Link>
+            <Link href="/products" passHref>
+              <Button className="text-white font-bold hover:text-green-500">Products</Button>
+            </Link>
+            <Link href="/contact" passHref>
+              <Button className="text-white font-bold hover:text-green-500">Contact</Button>
+            </Link>
+            <Link href='/cart'>
+              <Button variant="outlined" className="text-white font-bold">Cart</Button>
+            </Link>
+            <Button
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleMenuClick}
+              variant="contained"
+              className="text-white font-bold"
+            >
+              Account
+            </Button>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+              keepMounted
+              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+              open={Boolean(anchorEl)}
+              onClose={handleMenuClose}
+            >
+              <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+              <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+            </Menu>
+          </div>
+          <IconButton edge="start" color="inherit" aria-label="menu" sx={{ display: { xs: 'block', md: 'none' } }} onClick={handleDrawerToggle} className='text-white'>
+            <Hamburger />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        variant="temporary"
+        anchor="left"
+        sx={{ '& .MuiDrawer-paper': { width: '300px' } }}
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{ keepMounted: true }}
+      >
+        <Box className='flex flex-col gap-3 p-3 bg-gradient-to-tr to-gray-800 from-gray-900'>
+          <Typography variant="h6" component="div" className="text-blue-400 font-bold cursor-pointer">
+            Shopify-store
+          </Typography>
+          <hr />
+          <Link href="/" passHref>
+            <Button className="text-white font-bold hover:text-green-500">Home</Button>
+          </Link>
+          <Link href="/about" passHref>
+            <Button className="text-white font-bold hover:text-green-500">About</Button>
+          </Link>
+          <Link href="/products" passHref>
+            <Button className="text-white font-bold hover:text-green-500">Products</Button>
+          </Link>
+          <Link href="/contact" passHref>
+            <Button className="text-white font-bold hover:text-green-500">Contact</Button>
+          </Link>
+          <Link href='/cart'>
+            <Button variant="outlined" className="text-white font-bold">Cart</Button>
+          </Link>
+          <Button
+            aria-label="account of current user"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleMenuClick}
+            variant="contained"
+            className="text-white font-bold"
+          >
+            Account
+          </Button>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorEl}
+            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            keepMounted
+            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+            open={Boolean(anchorEl)}
+            onClose={handleMenuClose}
+          >
+            <MenuItem onClick={handleMenuClose}>
+              <Link href='/account/profile'>
+                Profile
+              </Link>
+            </MenuItem>
+            <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+          </Menu>
+        </Box>
+      </Drawer>
+    </>
+  );
+};
+
+export default Navbar;

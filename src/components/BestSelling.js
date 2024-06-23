@@ -46,9 +46,9 @@ export default function BestSelling() {
                                             ${product.price}
                                         </p>
                                     </div>
-                                    <div className="mt-8 flex items-center justify-center md:mt-24">
+                                    <div className="mt-8 flex items-center justify-center md:mt-24" data-aos="fade-right">
                                     <Link href={`/products/${product.id}`}>
-                                        <img className="" src={product.thumbnail} alt={product.title} />
+                                        <img className="" src={product.thumbnail} alt={product.title}/>
                                         </Link>
                                     </div>
                                 </article>
@@ -64,7 +64,7 @@ export default function BestSelling() {
                                             ${product.price}
                                         </p>
                                     </div>
-                                    <div className="mt-28 flex items-center justify-center md:mt-3">
+                                    <div className="mt-28 flex items-center justify-center md:mt-3" data-aos="fade-up">
                                         <img src={product.thumbnail} alt={product.title} />
                                     </div>
                                 </article>

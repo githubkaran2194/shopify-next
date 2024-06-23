@@ -43,7 +43,7 @@ export default function Login() {
       </div>
     </div>
     <div className="pointer-events-none hidden select-none bg-black shadow-2xl md:block md:w-1/2 lg:w-2/3">
-      <img className="h-screen w-full object-cover opacity-90" src="https://img.freepik.com/premium-vector/register-access-login-password-internet-online-website-concept-flat-illustration_385073-108.jpg" />
+      <img className="h-screen w-full object-cover opacity-90" src="https://images.unsplash.com/photo-1599751449128-eb7249c3d6b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" />
     </div>
   </div>
   
